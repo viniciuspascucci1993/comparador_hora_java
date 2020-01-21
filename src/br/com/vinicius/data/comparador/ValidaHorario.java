@@ -11,8 +11,8 @@ public class ValidaHorario {
 		// Pega data atual ( agora )
 		Date dataAgora = new Date();
 		
-		Date dataInicialNull = null;
-		Date dataFinalNull = null;
+		String horarioInicialVazio = "";
+		String horarioFinalVazio = "";
 		
 		// Setando calendarioInicial ( horas, minutos e segundos )
 		Calendar calendarioInicial = Calendar.getInstance();
@@ -31,15 +31,15 @@ public class ValidaHorario {
 		calendarioFinal.set(Calendar.SECOND, 0);
 		// Capturando a data final ( 16:00 )
 		Date dataFinal = calendarioFinal.getTime();
+
 		
 		if (dataAgora.after(dataInicial) && dataAgora.before(dataFinal))  {
 			
 			System.out.println("ABERTURA/FECHAMENTO - DENTRO DO PERIODO DE MOVIMENTAÇÃO DO FUNDO");
 			
-		} else if(dataInicial.equals(dataInicialNull) && dataFinal.equals(dataFinalNull)){
+		} else if("".equals(horarioInicialVazio) && "".equals(horarioFinalVazio)) {
 			
-			System.out.println("ABERTURA/FECHAMENTO - MOVIMENTO LIVRE - PERMITIDO QUALQUER HORARIO");
-			
+			System.out.println("ABERTURA/FECHAMENTO CAMPO VAZIO OU NULL - FORA DO PERIODO DE MOVIMENTAÇÃO DO FUNDO");
 		} else {
 			
 			System.out.println("ABERTURA/FECHAMENTO - FORA DO PERIODO DE MOVIMENTAÇÃO DO FUNDO");
